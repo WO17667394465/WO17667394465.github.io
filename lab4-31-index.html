@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字展销平台 - 图书促销</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+            padding-top: 88px;
+        }
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 88px;
+            background-color: #fff;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            z-index: 100;
+            transition: box-shadow 0.3s;
+        }
+        #header:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+        #header h2 {
+            color: #d32f2f;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        #header h2 span {
+            color: #2f54eb;
+        }
+        .nav-list {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+        .tap {
+            display: inline-flex;
+            align-items: center;
+            height: 88px;
+            padding: 0 8px;
+            cursor: pointer;
+            font-size: 16px;
+            position: relative;
+        }
+        .tap a {
+            color: #444;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .tap:hover a {
+            color: #d32f2f;
+        }
+        
+        .tap:hover::after {
+            width: 100%;
+        }
+        .my {
+            position: relative;
+        }
+        .tap-content {
+            display: none;
+            position: absolute;
+            top: 88px;
+            right: 0;
+            min-width: 180px;
+            background-color: #fff;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            z-index: 101;
+            overflow: hidden;
+        }
+        .tap-content a {
+            display: block;
+            padding: 12px 20px;
+            color: #555;
+            transition: all 0.3s;
+        }
+        .tap-content a:hover {
+            background-color: #f8f9fa;
+            color: #d32f2f;
+            padding-left: 24px;
+        }
+        .my:hover .tap-content {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        #main {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 30px;
+            display: flex;
+            gap: 24px;
+        }
+        .box1 {
+            width: 220px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            flex-shrink: 0;
+        }
+        .box1 h3 {
+            color: #d32f2f;
+            font-size: 18px;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .category-list {
+            list-style: none;
+        }
+        .category-list li {
+            margin-bottom: 12px;
+            position: relative;
+            left: 0;
+            transition: left 0.3s;
+        }
+        .category-list li a {
+            color: #555;
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+        .category-list li:hover {
+            left: 6px;
+        }
+        .category-list li:hover a {
+            color: #d32f2f;
+        }
+        .box2 {
+            flex: 1;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            padding: 24px;
+        }
+        .section-title {
+            color: #d32f2f;
+            font-size: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #f8f8f8;
+            display: flex;
+            align-items: center;
+        }
+        .section-title::before {
+            content: "";
+            width: 4px;
+            height: 20px;
+            background-color: #d32f2f;
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+        .book-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        .book-card {
+            width: calc((100% - 48px) / 3);
+            border-radius: 8px;
+            border: 1px solid #f0f0f0;
+            overflow: hidden;
+            background-color: #fff;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .book-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            border-color: transparent;
+        }
+        .book-img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .book-card:hover .book-img {
+            transform: scale(1.03);
+        }
+        .book-info {
+            padding: 16px;
+        }
+        .book-info p {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .book-info .author {
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 4px;
+        }
+        .new-book-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        .new-book-table th {
+            background-color: #f8f9fa;
+            color: #444;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 14px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        .new-book-table td {
+            padding: 16px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.3s;
+        }
+        .new-book-table tr:last-child td {
+            border-bottom: none;
+        }
+        .new-book-table tr:hover td {
+            background-color: #fafafa;
+        }
+        .new-book-img {
+            width: 80px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .price {
+            color: #d32f2f;
+            font-weight: 600;
+            font-size: 15px;
+        }
+        .box3 {
+            width: 280px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .ad-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .ad-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        }
+        .ad-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        #floating-cart {
+            position: fixed;
+            right: 20px;
+            top: 90%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background-color: #d32f2f;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+            cursor: pointer;
+            z-index: 150;
+            transition: all 0.3s;
+            opacity: 0.9;
+        }
+        .ing{
+             width:100%;
+             height:30%;
+             height: auto;
+             position: relative;
+        }
+        .ing-cover{
+            position: absolute;
+            top: 0; 
+            left: 0;
+            width:100%;
+            height: 100%;
+            background-color:rgba(225,225,225,0.5);
+            display:none;
+            overflow:hidden;
+        }
+        .ing-play{
+            position: absolute;
+            top:50%;
+            left:50%;
+            display:block;
+            margin:auto;
+        }
+        .ing:hover .ing-cover{
+            display:block;
+            cursor:pointer;
+        }
+        #eixt{
+            position: fixed;
+            right: 90px;
+            top: 90%;
+            transform: translateY(-50%);
+            width: 90px;
+            height: 60px;
+            background-color: #2f54eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+        #eixt a{
+            text-decoration: none;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h2>图书<span>促销</span></h2>
+        <ul class="nav-list">
+            <li class="tap"><a href="#">首页</a></li>
+            <li class="tap"><a href="#">热门推荐</a></li>
+            <li class="tap"><a href="#">新书上市</a></li>
+            <li class="my">
+                <div class="tap"><a href="#">图书分类</a></div>
+                <div class="tap-content">
+                    <a href="#">文学小说</a>
+                    <a href="#">社会科学</a>
+                    <a href="#">幼儿教育</a>
+                    <a href="#">散文诗歌</a>
+                    <a href="#">经典名著</a>
+                    <a href="#">历史传记</a>
+                    <a href="#">思想与法律</a>
+                </div>
+            </li>
+            <li class="tap"><a href="#">积分商城</a></li>
+            <li class="my">
+                <div class="tap"><a href="#">官方客服</a></div>
+                <div class="tap-content">
+                    <a href="#">平台客服</a>
+                    <a href="#">店铺客服</a>
+                    <a href="#">物流客服</a>
+                </div>
+            </li>
+            <li class="my">
+                <div class="tap"><a href="#">我的</a></div>
+                <div class="tap-content">
+                    <a href="#">我的收藏</a>
+                    <a href="#">消息通知</a>
+                    <a href="#">账户设置</a>
+                    <a href="#">退出登录</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div id="main">
+        <!-- 左侧分类栏 -->
+        <div class="box1">
+            <h3>图书分类</h3>
+            <ul class="category-list">
+                <li><a href="#">文学小说</a></li>
+                <li><a href="#">社会科学</a></li>
+                <li><a href="#">幼儿教育</a></li>
+                <li><a href="#">散文诗歌</a></li>
+                <li><a href="#">经典名著</a></li>
+                <li><a href="#">历史传记</a></li>
+                <li><a href="#">思想与法律</a></li>
+            </ul>
+        </div>
+
+        <!-- 中间内容区 -->
+        <div class="box2">
+            <!--轮播图指示-->
+            <div class="ing">
+                <img src="../image/天猫读书日.png">
+                <div class="ing-cover"><span class="ing-play"><img src="../image/Play2.jpg" width="50px" height="50px"></span></div>
+            </div>
+            <!-- 好书推荐 -->
+            <h3 class="section-title">好书推荐</h3>
+            <div class="book-container">
+                <div class="book-card">
+                    <img src="../image/喂，你好吗？.jpg" alt="喂，你好吗？-齐思钧著" class="book-img">
+                    <div class="book-info">
+                        <p class="author">作者：齐思钧（齐小狐）</p>
+                        <p>情绪失控者内心的探索之旅</p>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="../image/有人自林中坠落.jpg" alt="有人自林中坠落-蒲熠星著" class="book-img">
+                    <div class="book-info">
+                        <p class="author">作者：蒲熠星</p>
+                        <p>“你可以成为你想成为的任何人”</p>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="../image/公司法.jpg" alt="公司法-何运晨著" class="book-img">
+                    <div class="book-info">
+                        <p class="author">作者：何运晨</p>
+                        <p>理解商业基本的逻辑和规则</p>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="../image/天才在左疯子在右.jpg" alt="天才在左疯子在右-高铭著" class="book-img">
+                    <div class="book-info">
+                        <p class="author">作者：高铭</p>
+                        <p>唤醒你未知的灵魂</p>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="../image/素食者.jpg" alt="素食者-韩江著" class="book-img">
+                    <div class="book-info">
+                        <p class="author">作者：韩江</p>
+                        <p>揭露人类生命的脆弱</p>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="../image/牛虻.jpg" alt="牛虻-伏尼契著" class="book-img">
+                    <div class="book-info">
+                        <p class="author">作者：伏尼契</p>
+                        <p>世界文学史上的信仰之光</p>
+                    </div>
+                </div>
+            </div>
+            <h3 class="section-title">新书上市</h3>
+            <table class="new-book-table">
+                <thead>
+                    <tr>
+                        <th>封面</th>
+                        <th>书名</th>
+                        <th>作者</th>
+                        <th>价格</th>
+                        <th>出版社</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="../image/千灯录.jpg" alt="千灯录-侧侧轻寒著" class="new-book-img"></td>
+                        <td>千灯录</td>
+                        <td>侧侧轻寒</td>
+                        <td class="price">¥31.9</td>
+                        <td>江苏凤凰文艺出版社</td>
+                    </tr>
+                    <tr>
+                        <td><img src="../image/烟火人间.jpg" alt="烟火人间-晚秋暮埙著" class="new-book-img"></td>
+                        <td>烟火人间</td>
+                        <td>晚秋暮埙</td>
+                        <td class="price">¥23.57</td>
+                        <td>百花文艺出版社</td>
+                    </tr>
+                    <tr>
+                        <td><img src="../image/风吹到哪页读哪页.jpg" alt="风吹到哪页读哪页-飞扬文室著" class="new-book-img"></td>
+                        <td>风吹到哪页读哪页</td>
+                        <td>飞扬文室</td>
+                        <td class="price">¥27.8</td>
+                        <td>江苏凤凰文艺出版社</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 右侧广告区 -->
+        <div class="box3">
+            <div class="ad-card">
+                <img src="../image/你读书我买单.jpg" alt="你读书我买单活动" class="ad-img">
+            </div>
+            <div class="ad-card">
+                <img src="../image/图书促销季.jpg" alt="图书促销季活动" class="ad-img">
+            </div>
+        </div>
+    </div>
+    <div id="floating-cart">
+        🛒
+    </div>
+    <div id="eixt">
+        <a href="#">回到顶部</a>
+    </div>
+</body>
+</html>
