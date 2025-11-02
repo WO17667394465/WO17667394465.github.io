@@ -4,342 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>数字展销平台 - 图书促销</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f5f7fa;
-            padding-top: 88px;
-        }
-        #header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 88px;
-            background-color: #fff;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 40px;
-            z-index: 100;
-            transition: box-shadow 0.3s;
-        }
-        #header:hover {
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-        }
-        #header h2 {
-            color: #d32f2f;
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-        #header h2 span {
-            color: #2f54eb;
-        }
-        .nav-list {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-        }
-        .tap {
-            display: inline-flex;
-            align-items: center;
-            height: 88px;
-            padding: 0 8px;
-            cursor: pointer;
-            font-size: 16px;
-            position: relative;
-        }
-        .tap a {
-            color: #444;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .tap:hover a {
-            color: #d32f2f;
-        }
-        
-        .tap:hover::after {
-            width: 100%;
-        }
-        .my {
-            position: relative;
-        }
-        .tap-content {
-            display: none;
-            position: absolute;
-            top: 88px;
-            right: 0;
-            min-width: 180px;
-            background-color: #fff;
-            border-radius: 0 0 8px 8px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-            z-index: 101;
-            overflow: hidden;
-        }
-        .tap-content a {
-            display: block;
-            padding: 12px 20px;
-            color: #555;
-            transition: all 0.3s;
-        }
-        .tap-content a:hover {
-            background-color: #f8f9fa;
-            color: #d32f2f;
-            padding-left: 24px;
-        }
-        .my:hover .tap-content {
-            display: block;
-            animation: fadeIn 0.3s ease;
-        }
-        
-        #main {
-            max-width: 1440px;
-            margin: 0 auto;
-            padding: 30px;
-            display: flex;
-            gap: 24px;
-        }
-        .box1 {
-            width: 220px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            padding: 20px;
-            flex-shrink: 0;
-        }
-        .box1 h3 {
-            color: #d32f2f;
-            font-size: 18px;
-            margin-bottom: 16px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #f0f0f0;
-        }
-        .category-list {
-            list-style: none;
-        }
-        .category-list li {
-            margin-bottom: 12px;
-            position: relative;
-            left: 0;
-            transition: left 0.3s;
-        }
-        .category-list li a {
-            color: #555;
-            text-decoration: none;
-            font-size: 15px;
-            transition: color 0.3s;
-        }
-        .category-list li:hover {
-            left: 6px;
-        }
-        .category-list li:hover a {
-            color: #d32f2f;
-        }
-        .box2 {
-            flex: 1;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            padding: 24px;
-        }
-        .section-title {
-            color: #d32f2f;
-            font-size: 20px;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid #f8f8f8;
-            display: flex;
-            align-items: center;
-        }
-        .section-title::before {
-            content: "";
-            width: 4px;
-            height: 20px;
-            background-color: #d32f2f;
-            margin-right: 10px;
-            border-radius: 2px;
-        }
-        .book-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 24px;
-            margin-bottom: 40px;
-        }
-        .book-card {
-            width: calc((100% - 48px) / 3);
-            border-radius: 8px;
-            border: 1px solid #f0f0f0;
-            overflow: hidden;
-            background-color: #fff;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-        .book-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-            border-color: transparent;
-        }
-        .book-img {
-            width: 100%;
-            height: 320px;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        .book-card:hover .book-img {
-            transform: scale(1.03);
-        }
-        .book-info {
-            padding: 16px;
-        }
-        .book-info p {
-            color: #555;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-        .book-info .author {
-            font-weight: 500;
-            color: #333;
-            margin-bottom: 4px;
-        }
-        .new-book-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-        .new-book-table th {
-            background-color: #f8f9fa;
-            color: #444;
-            font-size: 15px;
-            font-weight: 600;
-            padding: 14px;
-            text-align: center;
-            border-bottom: 1px solid #eee;
-        }
-        .new-book-table td {
-            padding: 16px;
-            text-align: center;
-            border-bottom: 1px solid #eee;
-            transition: background-color 0.3s;
-        }
-        .new-book-table tr:last-child td {
-            border-bottom: none;
-        }
-        .new-book-table tr:hover td {
-            background-color: #fafafa;
-        }
-        .new-book-img {
-            width: 80px;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .price {
-            color: #d32f2f;
-            font-weight: 600;
-            font-size: 15px;
-        }
-        .box3 {
-            width: 280px;
-            flex-shrink: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-        .ad-card {
-            background-color: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-        .ad-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-        }
-        .ad-img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        #floating-cart {
-            position: fixed;
-            right: 20px;
-            top: 90%;
-            transform: translateY(-50%);
-            width: 60px;
-            height: 60px;
-            background-color: #d32f2f;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 24px;
-            box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
-            cursor: pointer;
-            z-index: 150;
-            transition: all 0.3s;
-            opacity: 0.9;
-        }
-        .ing{
-             width:100%;
-             height:30%;
-             height: auto;
-             position: relative;
-        }
-        .ing-cover{
-            position: absolute;
-            top: 0; 
-            left: 0;
-            width:100%;
-            height: 100%;
-            background-color:rgba(225,225,225,0.5);
-            display:none;
-            overflow:hidden;
-        }
-        .ing-play{
-            position: absolute;
-            top:50%;
-            left:50%;
-            display:block;
-            margin:auto;
-        }
-        .ing:hover .ing-cover{
-            display:block;
-            cursor:pointer;
-        }
-        #eixt{
-            position: fixed;
-            right: 90px;
-            top: 90%;
-            transform: translateY(-50%);
-            width: 90px;
-            height: 60px;
-            background-color: #2f54eb;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-        }
-        #eixt a{
-            text-decoration: none;
-            color: #fff;
-        }
-    </style>
+    <link type="text/css" rel="stylesheet" href="../CSS/box.css">
 </head>
 <body>
     <div id="header">
@@ -351,7 +16,7 @@
             <li class="my">
                 <div class="tap"><a href="#">图书分类</a></div>
                 <div class="tap-content">
-                    <a href="#">文学小说</a>
+                    <a href="#"><i class="fa-solid fa-book"></i>文学小说</a>
                     <a href="#">社会科学</a>
                     <a href="#">幼儿教育</a>
                     <a href="#">散文诗歌</a>
@@ -362,7 +27,15 @@
             </li>
             <li class="tap"><a href="#">积分商城</a></li>
             <li class="my">
-                <div class="tap"><a href="#">官方客服</a></div>
+                <div class="tap"><a href="#">价格分类</a></div>
+                <div class="tap-content">
+                    <a href="#">0-50</a>
+                    <a href="#">50-100</a>
+                    <a href="#">100-150</a>
+                </div>
+            </li>
+            <li class="my">
+                <div class="tap"><a href="#"></a></div>
                 <div class="tap-content">
                     <a href="#">平台客服</a>
                     <a href="#">店铺客服</a>
@@ -406,18 +79,24 @@
             <!-- 好书推荐 -->
             <h3 class="section-title">好书推荐</h3>
             <div class="book-container">
-                <div class="book-card">
+                 <div class="book-card">
                     <img src="../image/喂，你好吗？.jpg" alt="喂，你好吗？-齐思钧著" class="book-img">
                     <div class="book-info">
-                        <p class="author">作者：齐思钧（齐小狐）</p>
-                        <p>情绪失控者内心的探索之旅</p>
+                    <p class="author">作者：齐思钧（齐小狐）</p>
+                    <p>情绪失控者内心的探索之旅</p>
                     </div>
-                </div>
+                    <div class="book-content">
+                    <p>《喂，你好吗？》是齐思钧 2025 年 4 月出版的疗愈类书籍。书中他坦诚分享了自己与消极情绪抗争、逐步实现自洽的过程，也提及工作压力、原生家庭等带来的困扰，还融入简单心理学知识。随书附赠情绪关爱计划、贴纸等小物件，能帮读者实操调节情绪，整体是本给人心灵慰藉的书。</p>
+                    </div>
+                    </div>
                 <div class="book-card">
                     <img src="../image/有人自林中坠落.jpg" alt="有人自林中坠落-蒲熠星著" class="book-img">
                     <div class="book-info">
                         <p class="author">作者：蒲熠星</p>
                         <p>“你可以成为你想成为的任何人”</p>
+                    </div>
+                     <div class="book-content">
+                        <p>《有人自林中坠落》是一款悬疑解谜游戏。你在森林中醒来，失去记忆，需要通过探索环境、收集碎片化线索，来揭开自己的身份和坠落的真相。</p>
                     </div>
                 </div>
                 <div class="book-card">
@@ -426,12 +105,19 @@
                         <p class="author">作者：何运晨</p>
                         <p>理解商业基本的逻辑和规则</p>
                     </div>
+                    <div class="book-content">
+                        <p>《公司法的 offer》是一本由何运晨编写的公司法入门读物。它用案例讲解法条，内容覆盖公司从设立到清算的全流程，兼具专业性和实用性，适合想快速了解公司法的读者。</p>
+                    </div>
                 </div>
                 <div class="book-card">
                     <img src="../image/天才在左疯子在右.jpg" alt="天才在左疯子在右-高铭著" class="book-img">
                     <div class="book-info">
                         <p class="author">作者：高铭</p>
                         <p>唤醒你未知的灵魂</p>
+                    </div>
+                    <div class="book-content">
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;《天才在左，疯子在右》是一本以精神病人访谈为形式的纪实类书籍，作者通过对话记录他们独特甚至颠覆常规的认知与世界观。<br>
+&nbsp;&nbsp;&nbsp;&nbsp;书中内容打破了 “正常” 与 “疯狂” 的界限，既有对量子物理、哲学等领域的另类解读，也充满对人性和世界的深度思考，风格猎奇又引人反思。</p>
                     </div>
                 </div>
                 <div class="book-card">
@@ -440,12 +126,19 @@
                         <p class="author">作者：韩江</p>
                         <p>揭露人类生命的脆弱</p>
                     </div>
+                    <div class="book-content">
+                        <p>《素食者》是诺贝尔文学奖得主韩江的代表作。它以丈夫、姐夫、姐姐三重视角，讲述家庭主妇英惠因噩梦拒绝吃肉，进而极端地想把自己变成一棵树以反抗家庭与父权社会暴力的悲剧故事。该书曾获布克国际文学奖，用独特叙事揭露了人性与社会压迫下女性的脆弱与抗争。</p>
+                    </div>
                 </div>
                 <div class="book-card">
                     <img src="../image/牛虻.jpg" alt="牛虻-伏尼契著" class="book-img">
                     <div class="book-info">
                         <p class="author">作者：伏尼契</p>
                         <p>世界文学史上的信仰之光</p>
+                    </div>
+                    <div class="book-content">
+                        <p>《牛虻》是爱尔兰作家伏尼契的经典小说，以 19 世纪意大利独立运动为背景。<br>
+&nbsp;&nbsp;&nbsp;&nbsp;主角亚瑟因误会与神父决裂，经历流亡、酷刑后化名 “牛虻”，成为坚定的革命者，最终为理想牺牲。小说核心是个人成长、信仰冲突与对自由的追求，充满热血与悲剧色彩。</p>
                     </div>
                 </div>
             </div>
@@ -493,6 +186,16 @@
             </div>
             <div class="ad-card">
                 <img src="../image/图书促销季.jpg" alt="图书促销季活动" class="ad-img">
+            </div>
+            <div class="ad-content">
+                <h3 class="content-title">促销信息</h3>
+                <ul class="content-list">
+                    <li><a href="#">全场商品8 折起，单笔订单满 200 元自动享 7 折。</a></li>
+                    <li><a href="#">满 59 元减 10 元，满 99 元减 25 元，满 199 元加赠定制周边（价值 39 元）。</a></li>
+                    <li><a href="#">限时 3 小时秒杀，10:00-13:00 指定款商品 9.9 元起（每人限购 1 件）。</a></li>
+                    <li><a href="#">转发活动海报到朋友圈，集满 18 个赞，到店可免费领指定小礼品（如钥匙扣、试用品）。</a></li>
+                    <li><a href="#">新用户注册会员，立享无门槛 15 元优惠券；老会员消费 1 元积 1 分，100 积分可抵 10 元现金。</a></li>
+                </ul>
             </div>
         </div>
     </div>
