@@ -208,8 +208,18 @@
             background-color: #8a7968;
             color: white;
         }
-        
         input[type="reset"]:hover {
             background-color: #706355;
             transform: translateY(-2px);
+        }
+        .buchong{
+            margin: 20px;
+            text-align: center;
+        }
+        .buchong p{
+            color:rgb(160, 160, 161);
+        }
+        span{
+            color:#333;
+            font-weight: 400;
         }
