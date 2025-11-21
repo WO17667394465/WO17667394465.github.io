@@ -1,0 +1,179 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    background-color: aliceblue;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    padding: 20px 0;
+}
+#denglv{
+    width:500px;
+    color:darkslategray;
+    background-image:url(../image/背景图1.jpeg);
+    background-size: cover;
+    border:1px solid #a6bed9;
+    padding:30px;
+    margin:0 auto;
+    border-radius: 8px;
+    box-shadow:0 4px 12px rgba(0, 0, 0, 0.1);
+}
+header{
+    margin:auto;
+    width:100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+ul{
+    list-style: none;
+    display:flex;
+}
+ul .mima{
+    width:50%;
+    cursor: pointer;
+    margin:0 auto;
+    height: 30px;
+    padding:20px;
+    font-size:1.5rem;
+    font-weight:500;
+    background-color: #a2dbf4;
+    border-top: 1px solid #a3bef4;
+    border-left: 1px solid #a3bef4;
+    border-right:1px solid #a3bef4;
+    border-radius: 4px 4px 0px 0px;
+}
+ul .yanzhengma{
+    cursor: pointer;
+    font-size:1.5rem;
+    height: 30px;
+    font-weight:500;
+    width:50%;
+    margin:0 auto;
+    padding:20px;
+    border: 1px solid #a3bef4;
+    border-radius:4px 4px 0px 0px;
+}
+ul .yanzhengma:hover{
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+a{
+    text-decoration: none;
+    color:#0c3375;
+}
+.form-group{
+    position:relative;
+    font-size:1.1rem;
+    display:block;
+    margin-bottom: 30px;
+}
+input[type="text"],
+input[type="password"]{
+    width:100%;
+    padding:12px 40px;
+    border:1px solid #ddd;
+    border-radius:4px;
+    font-size:1rem;
+    transition: border-color 0.3s;
+}
+input[type="text"]:focus,
+input[type="password"]:focus{
+    outline: none;
+    border-color: #3e76d8;
+    box-shadow: 0 0 0 2px rgba(3, 62, 172, 0.2);
+}
+.input-with-icon {
+        width: 100%;
+        padding: 12px 12px 12px 40px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 14px;
+        box-sizing: border-box;
+    }
+
+    .input-with-icon::placeholder {
+        color: #999; 
+    }
+    .icon {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #999;
+        font-size: 16px;
+    }
+
+.mem{
+    color:rgb(8, 132, 215);
+    font-size:1rem;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+    gap: 41px;
+    margin-top: 20px;
+}
+input[type="submit"],
+input[type="button"] {
+    padding: 20px 90px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: auto;
+}
+input[type="submit"]{
+    background-color: #7aa4ec;
+    color:#0c3375;
+}
+input[type="button"]{
+    background-color: #abd3f3;
+    color: #0c3375;
+}
+input[type="submit"]:hover {
+    background-color: #4277eb;
+    transform:scale(0.9);
+    box-shadow:0 4px 12px rgba(0, 0, 0, 0.1);
+}
+        
+input[type="button"]:hover {
+    background-color: #25b3f0;
+    transform:scale(0.9);
+    box-shadow:0 4px 12px rgba(0, 0, 0, 0.1);
+} 
+.qita{
+    margin:20px auto;
+    text-align: center;
+}
+.qita hr{
+    color:#9c9b9b;
+    width:80%;
+     margin: 10px auto;
+}
+.qita .qita-text{
+    margin: 20px;
+    color:#9c9b9b
+}
+img{
+    cursor: pointer;
+    width:56px;
+    height:56px;
+    border-radius:50px ;
+}
+.img-group{
+    margin: 20px;
+    display:flex;
+}
+.img-group li{
+    margin: 0 auto;
+}
+.power{
+    margin: 20px;
+    text-align: center;
+}
+span{
+    color:#25b3f0;
+}

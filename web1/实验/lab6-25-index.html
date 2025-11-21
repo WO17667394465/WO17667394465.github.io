@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字展销平台 - 图书促销</title>
+    <link type="text/css" rel="stylesheet" href="../CSS/box.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<body>
+    <div id="header">
+        <h2><i class="fas fa-book-open icon-margin"></i>图书促销</h2>
+        <ul class="nav-list">
+            <li class="tap"><a href="#"><i class="fas fa-home icon-margin"></i>首页</a></li>
+            <li class="tap"><a href="#"><i class="fas fa-fire icon-margin"></i>热门推荐</a></li>
+            <li class="tap"><a href="#"><i class="fas fa-box-open icon-margin"></i>新书上市</a></li>
+            <li class="my">
+                <div class="tap"><a href="#"><i class="fas fa-list-ul icon-margin"></i>图书分类</a></div>
+                <div class="tap-content">
+                    <a href="#"><i class="fas fa-book icon-margin"></i>文学小说</a>
+                    <a href="#"><i class="fas fa-users icon-margin"></i>社会科学</a>
+                    <a href="#"><i class="fas fa-child icon-margin"></i>幼儿教育</a>
+                    <a href="#"><i class="fas fa-feather-alt icon-margin"></i>散文诗歌</a>
+                    <a href="#"><i class="fas fa-monument icon-margin"></i>经典名著</a>
+                    <a href="#"><i class="fas fa-history icon-margin"></i>历史传记</a>
+                    <a href="#"><i class="fas fa-balance-scale icon-margin"></i>思想与法律</a>
+                </div>
+            </li>
+            <li class="tap"><a href="#"><i class="fas fa-gift icon-margin"></i>积分商城</a></li>
+            <li class="my">
+                <div class="tap"><a href="#"><i class="fas fa-tag icon-margin"></i>价格分类</a></div>
+                <div class="tap-content">
+                    <a href="#">0-50</a>
+                    <a href="#">50-100</a>
+                    <a href="#">100-150</a>
+                </div>
+            </li>
+            <li class="my">
+                <div class="tap"><a href="#"></a><i class="fas fa-headset icon-margin"></i>客服中心</div>
+                <div class="tap-content">
+                    <a href="#">平台客服</a>
+                    <a href="#">店铺客服</a>
+                    <a href="#">物流客服</a>
+                </div>
+            </li>
+            <li class="my">
+                <div class="tap"><a href="#"><i class="fas fa-user-circle icon-margin"></i>我的</a></div>
+                <div class="tap-content">
+                    <a href="#">我的收藏</a>
+                    <a href="#">消息通知</a>
+                    <a href="#">账户设置</a>
+                    <a href="javascript:;" class="login-link" onclick="openModal()">登录/注册</a>
+                    <a href="#">退出登录</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div id="main">
+        <!-- 左侧分类栏 -->
+        <div class="box1">
+            <h3><i class="fas fa-th-list icon-margin"></i>图书分类</h3>
+            <ul class="category-list">
+                <li><a href="#"><i class="fas fa-book icon-margin"></i>文学小说</a></li>
+                <li><a href="#"><i class="fas fa-users icon-margin"></i>社会科学</a></li>
+                <li><a href="#"><i class="fas fa-child icon-margin"></i>幼儿教育</a></li>
+                <li><a href="#"><i class="fas fa-feather-alt icon-margin"></i>散文诗歌</a></li>
+                <li><a href="#"><i class="fas fa-monument icon-margin"></i>经典名著</a></li>
+                <li><a href="#"><i class="fas fa-history icon-margin"></i>历史传记</a></li>
+                <li><a href="#"><i class="fas fa-balance-scale icon-margin"></i>思想与法律</a></li>
+            </ul>
+        </div>
+        <div class="box2">
+            <div class="tuijian">
+                <a href="../实验/tushutuijian.html" target="_blank">图书推荐订阅：get 你的个性化书单</a>
+            </div>
+            <!--轮播图指示-->
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <img src="../image/图书促销轮播图.png" art="图1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../image/屏幕截图 2025-11-18 142429.png" art="图2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../image/天猫读书日.png" art="图3">
+                    </div>
+                </div>
+                <div class="carousel-indicators">
+                    <div class="indicator active" data-index="0"></div>
+                    <div class="indicator" data-index="1"></div>
+                    <div class="indicator" data-index="2"></div>
+                </div>
+            </div>
+            <!-- 好书推荐 -->
+            <h3 class="section-title">好书推荐</h3>
+            <div class="book-container">
+                 <div class="book-card">
+                    <img src="../image/喂，你好吗？.jpg" alt="喂，你好吗？-齐思钧著" class="book-img">
+                    <div class="book-info">
+                    <p class="author">作者：齐思钧（齐小狐）</p>
+                    <p>情绪失控者内心的探索之旅</p>
+                    </div>
+                    <div class="book-content">
+                    <p>《喂，你好吗？》是齐思钧 2025 年 4 月出版的疗愈类书籍。书中他坦诚分享了自己与消极情绪抗争、逐步实现自洽的过程，也提及工作压力、原生家庭等带来的困扰，还融入简单心理学知识。随书附赠情绪关爱计划、贴纸等小物件，能帮读者实操调节情绪，整体是本给人心灵慰藉的书。</p>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="../image/有人自林中坠落.jpg" alt="有人自林中坠落-蒲熠星著" class="book-img">
+                    <div class="book-info">
+                        <p class="author">作者：蒲熠星</p>
+                        <p>“你可以成为你想成为的任何人”</p>
+                    </div>
+                     <div class="book-content">
+                        <p>《有人自林中坠落》是一款悬疑解谜游戏。你在森林中醒来，失去记忆，需要通过探索环境、收集碎片化线索，来揭开自己的身份和坠落的真相。</p>
+                     </div>
+                </div>
+                <div class="book-card">
+                    <img src="../image/公司法.jpg" alt="公司法-何运晨著" class="book-img">
+                    <div class="book-info">
+                        <p class="author">作者：何运晨</p>
+                        <p>理解商业基本的逻辑和规则</p>
+                    </div>
+                    <div class="book-content">
+                        <p>《公司法的 offer》是一本由何运晨编写的公司法入门读物。它用案例讲解法条，内容覆盖公司从设立到清算的全流程，兼具专业性和实用性，适合想快速了解公司法的读者。</p>
+                    </div>
+                    
+                </div>
+                <div class="book-card">
+                    <img src="../image/天才在左疯子在右.jpg" alt="天才在左疯子在右-高铭著" class="book-img">
+                    <div class="book-info">
+                        <p class="author">作者：高铭</p>
+                        <p>唤醒你未知的灵魂</p>
+                    </div>
+                    <div class="book-content">
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;《天才在左，疯子在右》是一本以精神病人访谈为形式的纪实类书籍，作者通过对话记录他们独特甚至颠覆常规的认知与世界观。<br>
+&nbsp;&nbsp;&nbsp;&nbsp;书中内容打破了 “正常” 与 “疯狂” 的界限，既有对量子物理、哲学等领域的另类解读，也充满对人性和世界的深度思考，风格猎奇又引人反思。</p>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="../image/素食者.jpg" alt="素食者-韩江著" class="book-img">
+                    <div class="book-info">
+                        <p class="author">作者：韩江</p>
+                        <p>揭露人类生命的脆弱</p>
+                    </div>
+                    <div class="book-content">
+                        <p>《素食者》是诺贝尔文学奖得主韩江的代表作。它以丈夫、姐夫、姐姐三重视角，讲述家庭主妇英惠因噩梦拒绝吃肉，进而极端地想把自己变成一棵树以反抗家庭与父权社会暴力的悲剧故事。该书曾获布克国际文学奖，用独特叙事揭露了人性与社会压迫下女性的脆弱与抗争。</p>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <img src="../image/牛虻.jpg" alt="牛虻-伏尼契著" class="book-img">
+                    <div class="book-info">
+                        <p class="author">作者：伏尼契</p>
+                        <p>世界文学史上的信仰之光</p>
+                    </div>
+                    <div class="book-content">
+                        <p>《牛虻》是爱尔兰作家伏尼契的经典小说，以 19 世纪意大利独立运动为背景。<br>
+&nbsp;&nbsp;&nbsp;&nbsp;主角亚瑟因误会与神父决裂，经历流亡、酷刑后化名 “牛虻”，成为坚定的革命者，最终为理想牺牲。小说核心是个人成长、信仰冲突与对自由的追求，充满热血与悲剧色彩。</p>
+                    </div>
+                </div>
+            </div>
+            <h3 class="section-title">新书上市</h3>
+            <table class="new-book-table">
+                <thead>
+                    <tr>
+                        <th>封面</th>
+                        <th>书名</th>
+                        <th>作者</th>
+                        <th>价格</th>
+                        <th>出版社</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="../image/千灯录.jpg" alt="千灯录-侧侧轻寒著" class="new-book-img"></td>
+                        <td>千灯录</td>
+                        <td>侧侧轻寒</td>
+                        <td class="price">¥31.9</td>
+                        <td>江苏凤凰文艺出版社</td>
+                    </tr>
+                    <tr>
+                        <td><img src="../image/烟火人间.jpg" alt="烟火人间-晚秋暮埙著" class="new-book-img"></td>
+                        <td>烟火人间</td>
+                        <td>晚秋暮埙</td>
+                        <td class="price">¥23.57</td>
+                        <td>百花文艺出版社</td>
+                    </tr>
+                    <tr>
+                        <td><img src="../image/风吹到哪页读哪页.jpg" alt="风吹到哪页读哪页-飞扬文室著" class="new-book-img"></td>
+                        <td>风吹到哪页读哪页</td>
+                        <td>飞扬文室</td>
+                        <td class="price">¥27.8</td>
+                        <td>江苏凤凰文艺出版社</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- 右侧广告区 -->
+        <div class="box3">
+            <div class="ad-card">
+                <img src="../image/你读书我买单.jpg" alt="你读书我买单活动" class="ad-img">
+            </div>
+            <div class="ad-card">
+                <img src="../image/图书促销季.jpg" alt="图书促销季活动" class="ad-img">
+            </div>
+            <div class="ad-content">
+                <h3 class="content-title">促销信息</h3>
+                <ul class="content-list">
+                    <li><a href="#">全场商品8 折起，单笔订单满 200 元自动享 7 折。</a></li>
+                    <li><a href="#">满 59 元减 10 元，满 99 元减 25 元，满 199 元加赠定制周边（价值 39 元）。</a></li>
+                    <li><a href="#">限时 3 小时秒杀，10:00-13:00 指定款商品 9.9 元起（每人限购 1 件）。</a></li>
+                    <li><a href="#">转发活动海报到朋友圈，集满 18 个赞，到店可免费领指定小礼品（如钥匙扣、试用品）。</a></li>
+                    <li><a href="#">新用户注册会员，立享无门槛 15 元优惠券；老会员消费 1 元积 1 分，100 积分可抵 10 元现金。</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="floating-cart">
+        🛒
+    </div>
+    <div id="eixt">
+        <a href="#">回到顶部</a>
+    </div>
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="login-modal">
+            <!-- 弹窗头部 -->
+            <div class="modal-header">
+                <h3 class="modal-title">用户登录</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm" onsubmit="return submitLogin()">
+                    <div class="form-group">
+                        <i class="fas fa-user input-icon"></i>
+                        <input type="text"  class="input-with-icon" value="" placeholder="请输入用户名/手机号/邮箱" required>
+                    </div>
+
+                    <div class="form-group">
+                        <i class="fas fa-lock input-icon"></i>
+                        <input type="password" class="input-with-icon" value="" placeholder="请输入6-16位密码" required>
+                    </div>
+                    <div class="mem">
+                           <label><input type="checkbox" name="mem" value="jizhuwo"> 记住我</label>
+                    </div>
+                     <div class="power">
+                            <p>登录或完成注册即代表你同意<span>用户协议</span>和<span>隐私政策</span></p>
+                    </div>
+                    <button type="submit" class="submit-btn">登录</button>
+                </form>
+            </div>
+            <div class="qita">
+                    <p class="qita-text">其他登录方式</p>
+                    <hr align="center" size="1px">
+                    <ul class="img-group">
+                        <li><a href="https://im.qq.com/index/" target="_blank"><img src="../image/QQ图标.jpg"></a></li>
+                        <li><a href="https://weixin.qq.com/" target="_blank"><img src="../image/微信图标.jpg"></a></li>
+                        <li><a href="https://www.weibo.com/#!/nmsu" target="_blank"><img src="../image/微博图标.webp"></a></li>
+                        <li><a href="https://seller.tiktokglobalshop.com" target="_blank"><img src="../image/抖音图标.jpg"></a></li>
+                    </ul>
+                </div>
+            <!-- 弹窗底部 -->
+            <div class="modal-footer">
+                <a href="#">忘记密码？</a> | <a href="#">注册账号</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 获取弹窗相关元素
+        const modalOverlay = document.getElementById('modalOverlay');
+
+        // 打开弹窗
+        function openModal() {
+            modalOverlay.style.display = 'flex'; // 显示遮罩层（flex 居中）
+        }
+
+        // 关闭弹窗
+        function closeModal() {
+            modalOverlay.style.display = 'none'; // 隐藏遮罩层
+        }
+    </script>
+</body>
+</html>

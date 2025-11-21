@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>图书推荐订阅表单</title>
+        <link type="text/css" rel="stylesheet" href="../CSS/book.css">
+    </head>
+    <body>
+    <div id="tuijian">
+        <header>
+            <div id="header-tuijian">
+                <h2>图书推荐订阅：get 你的个性化书单</h2>
+                <hr>
+            </div>
+        </header>
+        <content>
+            <form action="" method="post" enctype="multipart/form-data">
+                <!-- 基础信息区 -->
+                <div class="form-group">
+                    <h3>基础信息</h3>
+                    <div class="form-item xingming">
+                        <label for="use" class="required">姓名:</label>
+                        <input type="text" name="user" value="" id="use" placeholder="请输入您的姓名" required maxlength="20">
+                    </div>
+                    <div class="form-item mima">
+                        <label for="password" class="required">密码:</label>
+                        <input type="password" name="password" value="" id="password" placeholder="请输入6-16位密码" required minlength="6" maxlength="16">
+                    </div>
+                    <div class="form-item youxiang">
+                        <label for="youxiang" class="required">邮箱：</label>
+                        <input type="email" name="youxiang" value="" id="youxiang" placeholder="请输入您的邮箱" required maxlength="20">
+                    </div>
+                    <div class="form-item xingbie">
+                        <label class="required">性别：</label>
+                        <input type="radio" name="gender" value="male" id="man" checked>
+                        <label for="man">男</label>
+                        <input type="radio" name="gender" value="female" id="woman">
+                        <label for="woman">女</label>
+                    </div>
+                    <div class="form-item chengshi">
+                        <label for="sheng" class="required">城市：</label>
+                        <select name="sheng" id="sheng" required>
+                            <option value="" disabled selected>请选择省份/地区</option>
+                            <option value="hebei">河北省</option>
+                            <option value="shanxi">山西省</option>
+                            <option value="liaoning">辽宁省</option>
+                            <option value="jilin">吉林省</option>
+                            <option value="heilongjiang">黑龙江省</option>
+                            <option value="jiangsu">江苏省</option>
+                            <option value="zhejiang">浙江省</option>
+                            <option value="anhui">安徽省</option>
+                            <option value="fujian">福建省</option>
+                            <option value="jiangxi">江西省</option>
+                            <option value="shandong">山东省</option>
+                            <option value="henan">河南省</option>
+                            <option value="hubei">湖北省</option>
+                            <option value="hunan">湖南省</option>
+                            <option value="guangdong">广东省</option>
+                            <option value="hainan">海南省</option>
+                            <option value="sichuan">四川省</option>
+                            <option value="guizhou">贵州省</option>
+                            <option value="yunnan">云南省</option>
+                            <option value="shaanxi">陕西省</option>
+                            <option value="gansu">甘肃省</option>
+                            <option value="qinghai">青海省</option>
+                            <option value="taiwan">台湾省</option>
+                            <option value="neimenggu">内蒙古自治区</option>
+                            <option value="guangxi">广西壮族自治区</option>
+                            <option value="xizang">西藏自治区</option>
+                            <option value="ningxia">宁夏回族自治区</option>
+                            <option value="xinjiang">新疆维吾尔自治区</option>
+                            <option value="beijing">北京市</option>
+                            <option value="tianjin">天津市</option>
+                            <option value="shanghai">上海市</option>
+                            <option value="chongqing">重庆市</option>
+                            <option value="xianggang">香港特别行政区</option>
+                            <option value="aomen">澳门特别行政区</option>
+                        </select>
+                    </div>
+                    <div class="form-item tushufenlei">
+                        <label for="fenlei" class="required">图书分类：</label>
+                        <select name="fenlei" id="fenlei" required>
+                            <option value="" disabled selected>请选择核心分类</option>
+                            <option value="marx">马克思主义、列宁主义、毛泽东思想、邓小平理论</option>
+                            <option value="philosophy">哲学、宗教</option>
+                            <option value="social">社会科学总论</option>
+                            <option value="politics">政治、法律</option>
+                            <option value="economy">经济</option>
+                            <option value="culture">文化、科学、教育、体育</option>
+                            <option value="language">语言、文字</option>
+                            <option value="literature">文学</option>
+                            <option value="art">艺术</option>
+                            <option value="history">历史、地理</option>
+                            <option value="science">自然科学总论</option>
+                            <option value="medicine">医药、卫生</option>
+                            <option value="agriculture">农业科学</option>
+                            <option value="technology">工业技术</option>
+                            <option value="transport">交通运输</option>
+                            <option value="aerospace">航空、航天</option>
+                            <option value="environment">环境科学、安全科学</option>
+                            <option value="comprehensive">综合性图书</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 兴趣分类区 -->
+                <div class="form-group">
+                    <h3>兴趣爱好</h3>
+                    <p>请选择您感兴趣的图书类型（可多选）</p>
+                    
+                    <!-- 文学艺术区 -->
+                    <div class="interest-category">
+                        <p>
+                            文学艺术 <i class="fas fa-chevron-down"></i>
+                        </p>
+                        <hr align="center" color="black" size="1px" width="100%">
+                        <div id="wenxue" class="interest-options">
+                            <label><input type="checkbox" name="interest" value="gudai"> 古代言情</label>
+                            <label><input type="checkbox" name="interest" value="chunai"> 纯爱</label>
+                            <label><input type="checkbox" name="interest" value="xuanyi"> 悬疑</label>
+                            <label><input type="checkbox" name="interest" value="yansheng"> 衍生</label>
+                            <label><input type="checkbox" name="interest" value="niandai"> 年代</label>
+                            <label><input type="checkbox" name="interest" value="xiandai"> 现代言情</label>
+                            <label><input type="checkbox" name="interest" value="yingshi"> 影视原著</label>
+                            <label><input type="checkbox" name="interest" value="zhuanji"> 传记</label>
+                            <label><input type="checkbox" name="interest" value="waiguo"> 外国文学</label>
+                            <label><input type="checkbox" name="interest" value="zhongguowenxue"> 中国文学</label>
+                            <label><input type="checkbox" name="interest" value="sheying"> 摄影</label>
+                            <label><input type="checkbox" name="interest" value="jianshang"> 鉴赏收藏</label>
+                            <label><input type="checkbox" name="interest" value="yishu"> 艺术概论</label>
+                            <label><input type="checkbox" name="interest" value="yinyue"> 音乐舞蹈</label>
+                            <label><input type="checkbox" name="interest" value="shufa"> 书法篆刻</label>
+                            <label><input type="checkbox" name="interest" value="xiju"> 戏剧影视</label>
+                            <label><input type="checkbox" name="interest" value="huihua"> 绘画雕刻</label>
+                        </div>
+                    </div>
+                    
+                    <!-- 人文社科区 -->
+                    <div class="interest-category">
+                        <p>
+                            人文社科 <i class="fas fa-chevron-down"></i>
+                        </p>
+                        <hr align="center" color="black" size="1px" width="100%">
+                    
+                        <div id="renwen" class="interest-options">
+                            <label><input type="checkbox" name="interest" value="shijieshi"> 世界史</label>
+                            <label><input type="checkbox" name="interest" value="zhongguoshi"> 中国史</label>
+                            <label><input type="checkbox" name="interest" value="kaogu"> 考古文物</label>
+                            <label><input type="checkbox" name="interest" value="shixue"> 史学理论</label>
+                            <label><input type="checkbox" name="interest" value="zhongguozhexue"> 中国哲学</label>
+                            <label><input type="checkbox" name="interest" value="xifangzhexue"> 西方哲学</label>
+                            <label><input type="checkbox" name="interest" value="zhexuezonglun"> 哲学总论</label>
+                            <label><input type="checkbox" name="interest" value="maliezhuzuo"> 马列著作</label>
+                            <label><input type="checkbox" name="interest" value="luojixue"> 逻辑学</label>
+                            <label><input type="checkbox" name="interest" value="zongjiao"> 宗教</label>
+                            <label><input type="checkbox" name="interest" value="lunlixue"> 伦理学</label>
+                            <label><input type="checkbox" name="interest" value="meixue"> 美学</label>
+                            <label><input type="checkbox" name="interest" value="falv"> 法律法规</label>
+                            <label><input type="checkbox" name="interest" value="faxuelilun"> 法学理论</label>
+                            <label><input type="checkbox" name="interest" value="falvkepu"> 法律科普</label>
+                            <label><input type="checkbox" name="interest" value="xinlixuebaike"> 心理学百科</label>
+                            <label><input type="checkbox" name="interest" value="dangzhengduwu"> 党政读物</label>
+                            <label><input type="checkbox" name="interest" value="junshililun"> 军事理论</label>
+                            <label><input type="checkbox" name="interest" value="shehui"> 社会科学</label>
+                        </div>
+                    </div>
+                    
+                    <!-- 少儿童书区 -->
+                    <div class="interest-category">
+                        <p>
+                            少儿童书 <i class="fas fa-chevron-down"></i>
+                        </p>
+                        <hr align="center" color="black" size="1px" width="100%">
+                        <div id="shaertongshu" class="interest-options">
+                            <label><input type="checkbox" name="interest" value="zhongguoertong"> 中国儿童文学</label>
+                            <label><input type="checkbox" name="interest" value="waiguoertong"> 外国儿童文学</label>
+                            <label><input type="checkbox" name="interest" value="tonghuayuyan"> 童话寓言</label>
+                            <label><input type="checkbox" name="interest" value="manhua"> 漫画绘本</label>
+                            <label><input type="checkbox" name="interest" value="yizhiyouxi"> 益智游戏</label>
+                            <label><input type="checkbox" name="interest" value="shizishuohua"> 识字说话</label>
+                            <label><input type="checkbox" name="interest" value="kepubaike"> 科普百科</label>
+                        </div>
+                    </div>
+                    
+                    <!-- 考试教育区 -->
+                    <div class="interest-category">
+                        <p>
+                            考试教育 <i class="fas fa-chevron-down"></i>
+                        </p>
+                        <hr align="center" color="black" size="1px" width="100%">
+                        <div id="kaoshi" class="interest-options">
+                            <label><input type="checkbox" name="interest" value="zhongxiaoxue"> 中小学教辅</label>
+                            <label><input type="checkbox" name="interest" value="zidiancidian"> 字典词典</label>
+                            <label><input type="checkbox" name="interest" value="waiyu"> 外语学习</label>
+                            <label><input type="checkbox" name="interest" value="jisuanjilie"> 计算机类</label>
+                            <label><input type="checkbox" name="interest" value="qita"> 其他考试</label>
+                        </div>
+                    </div>
+                    
+                    <!-- 经济金融区 -->
+                    <div class="interest-category">
+                        <p>
+                            经济金融 <i class="fas fa-chevron-down"></i>
+                        </p>
+                        <hr align="center" color="black" size="1px" width="100%">
+                        <div id="jingji" class="interest-options">
+                            <label><input type="checkbox" name="interest" value="shichangyingxiao"> 市场营销</label>
+                            <label><input type="checkbox" name="interest" value="guanlixue"> 管理学</label>
+                            <label><input type="checkbox" name="interest" value="gongggongguanxi"> 公共关系</label>
+                            <label><input type="checkbox" name="interest" value="lvyouguanli"> 旅游管理</label>
+                            <label><input type="checkbox" name="interest" value="shengchanguanli"> 生产管理</label>
+                            <label><input type="checkbox" name="interest" value="gongshangguanli"> 工商管理</label>
+                            <label><input type="checkbox" name="interest" value="qiyejingyingguanli"> 企业经营管理</label>
+                            <label><input type="checkbox" name="interest" value="zhongguojingji"> 中国经济</label>
+                            <label><input type="checkbox" name="interest" value="shijiejingji"> 世界经济</label>
+                            <label><input type="checkbox" name="interest" value="gongyejingji"> 工业经济</label>
+                            <label><input type="checkbox" name="interest" value="maoyi"> 贸易</label>
+                            <label><input type="checkbox" name="interest" value="jinrong"> 金融</label>
+                            <label><input type="checkbox" name="interest" value="kuaiji"> 会计</label>
+                    </div>
+                </div>
+
+                <!-- 补充信息区 -->
+                <div class="form-group">
+                    <h3>补充信息</h3>
+                    <div class="form-item liuyan">
+                        <label for="liuyan">留言：</label>
+                        <textarea name="liuyan" id="liuyan" placeholder="请填写额外的图书推荐需求"></textarea>
+                    </div>
+                    <div class="form-item shuoming">
+                        <label for="shuoming">说明：</label>
+                        <textarea name="shuoming" id="shuoming" placeholder="请补充其他说明"></textarea>
+                    </div>
+                    <div class="form-item touxiang">
+                        <label>头像（可选）：</label>
+                            <a class="upload">
+                                <input type="file" name="up" accept="image/*">
+                            </a>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <input type="submit" value="提交">
+                    <input type="reset" value="重置">
+                </div>
+            </form>
+        </content>
+        <footer>
+            <div class="buchong">
+                <p>如应用中出现问题请<span>联系客服</span></p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

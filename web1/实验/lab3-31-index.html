@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>数字展销平台</title>
+
+        <style>
+            body{
+                font-family:"Microsoft YaHei",sans-serif;
+                line-height:1.6;
+            }
+            #header{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 20px;
+                margin:0;
+                padding:0;
+                box-sizing:boder-box;
+                background-color:#85cccc7f
+            }
+            #header h2{
+                color:#cc1818e4;
+                width:300px;
+                padding:20px 50px;
+                border-style:none;
+            }
+            #header ul{
+                float:right;
+            }
+            .box1{
+                color:#cc1818e4;
+                width:170px;
+                float:left;
+                margin-right:10px;
+                border:1px solid #ddd;
+                padding:15px;
+                background-color:#fff;
+            }
+            .box1 ul li{
+                margin-bottom:10px;
+                position:relative;
+                left:0;
+                transition:left 0.3s;
+            }
+            .box1 ul li:hover{
+                left:5px;
+            }
+            .box2{
+                width:910px;
+                float:left;
+                margin-right:20px;
+                border:1px solid #ddd;
+            }
+            .box3{
+                width:170px;
+                float:left;
+                margin-left:10px;
+                border:1px solid #ddd;
+                cursor:pointer;
+            }
+            .box2 h3{
+                margin:10px;
+                color:#cc1818e4;
+            }
+            .book1,
+            .book2,
+            .book3{
+                float:left;
+                margin:auto;
+                margin-left:30px;
+                margin-top:20px;
+                cursor:pointer;
+            }
+            .book4,
+            .book5,
+            .book6{
+                float:left;
+                margin:auto;
+                margin-left:30px;
+                margin-top:20px;
+                cursor:pointer;
+            }
+            
+            .book1{
+                border:1px solid #8f3a3a;
+                
+            }
+            .book1:hover{
+                transform:translate(5px,0);
+            }
+            .book2{
+                border:1px solid #8f3a3a;
+            }
+            .book2:hover{
+                transform:translate(5px,0);
+            }
+            .book3{
+                border:1px solid #8f3a3a;
+            }
+            .book3:hover{
+                transform:translate(5px,0);
+            }
+            .book4{
+                border:1px solid #8f3a3a;
+            }
+            .book4:hover{
+                transform:translate(5px,0);
+            }
+            .book5{
+                border:1px solid #8f3a3a;
+            }
+            .book5:hover{
+                transform:translate(5px,0);
+            }
+            .book6{
+                border:1px solid #8f3a3a;
+            }
+            .book6:hover{
+                transform:translate(5px,0);
+            }
+            li{
+                float:left;
+                margin-left:10px;
+                line-height:80px;
+            }
+            table{
+                width:100%;
+                border-collapse:collapse;
+            }
+            th{
+                border:1px solid #8f3a3a
+            }
+            td{
+                border:1px solid #8f3a3a
+            }
+            a{
+                text-decoration:none;
+                color: #df5e03;
+            }
+             a:hover{
+                color:rgb(100, 29, 8);
+                border-bottom:2px solid #8f3a3a
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header">
+            <h2>图书促销</h2>
+            <ul style="list-style:none;display:flex;gap:20px;justify-content:flex-end;">
+                <li><a href="#">首页</a></li>
+                <li><a href="#">热门推荐</a></li>
+                <li><a href="#">新书上市</a></li>
+                <li><a href="#">积分商城</a></li>
+                <li><a href="#">官方客服</a></li>
+                <li><a href="#">我的</a></li>
+            </ul>
+            <hr align="left" color="rad" size="1px">
+        </div> 
+        <div id="main">
+            <div class="box1">
+                <h3>分类</h3>
+                <hr align="left" color="yello" size="2px" width="180px">
+                <ul style="list-style:none;">
+                    <li><a href="#">文学小说</a></li>
+                    <li><a href="#">社会科学</a></li>
+                    <li><a href="#">幼儿教育</a></li>
+                    <li><a href="#">散文诗歌</a></li>
+                    <li><a href="#">经典名著</a></li>
+                    <li><a href="#">历史传记</a></li>
+                    <li><a href="#">思想与法律</a></li>
+                </ul>
+            </div>
+            <div class="box2">
+                <h3>好书推荐</h3>
+                <hr align="left" color="yello" size="2px" width="910px">
+                <div class="book1">
+                    <img src="../image/喂，你好吗？.jpg" width="270px" height="400px" art="">
+                    <p>作者：齐思钧（齐小狐）<br>情绪失控者内心的探索之旅</p>
+                </div>
+                <div class="book2">
+                    <img src="../image/有人自林中坠落.jpg" width="270px" height="400px" art="">
+                    <p>作者：蒲熠星<br>"你可以成为你想成为的任何人"</p>
+                </div>
+                <div class="book3">
+                    <img src="../image/公司法.jpg" width="270px" height="400px" art="">
+                    <p>作者：何运晨<br>理解商业基本的逻辑和规则</p>
+                </div>
+                <div class="book4">
+                    <img src="../image/天才在左疯子在右.jpg" width="270px" height="400px" art="">
+                    <p>作者：高铭<br>唤醒你未知的灵魂</p>
+                </div>
+                <div class="book5">
+                    <img src="../image/素食者.jpg" width="270px" height="400px" art="">
+                    <p>作者：韩江<br>揭露人类生命的脆弱</p>
+                </div>
+                <div class="book6">
+                    <img src="../image/牛虻.jpg" width="270px" height="400px" art="">
+                    <p>作者：伏尼契<br>世界文学史上的信仰之光</p>
+                </div>
+                <div>
+                    <table bordercolor="#8a5a03" align="center">
+                        <caption><h3>新书上市</h3></caption>
+                        <tbody>
+                            <tr>
+                                <th></th>
+                                <th>书名</th>
+                                <th>作者</th>
+                                <th>价格</th>
+                                <th>出版社</th>
+                            </tr>
+                            <tr align="center">
+                                <td><img src="../image/千灯录.jpg" width="170" height="250"></td>
+                                <td>千灯录</td>
+                                <td>侧侧轻寒</td>
+                                <td>31.9</td>
+                                <td>江苏凤凰文艺出版社</td>
+                            </tr>
+                            <tr align="center">
+                                <td><img src="../image/烟火人间.jpg" width="170" height="250"></td>
+                                <td>烟火人间</td>
+                                <td>晚秋暮埙</td>
+                                <td>23.57</td>
+                                <td>百花文艺出版社</td>
+                            </tr>
+                            <tr align="center">
+                                <td><img src="../image/风吹到哪页读哪页.jpg" width="200" height="250"></th>
+                                <td>风吹到哪页读哪页</td>
+                                <td>飞扬文室</td>
+                                <td>27.8</td>
+                                <td>江苏凤凰文艺出版社</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="box3">
+                <img src="../image/你读书我买单.jpg" width="250px" height="900px">
+                <img src="../image/图书促销季.jpg" width="250px" height="900px">
+            </div>
+        </div>
+    </body>
+</html>

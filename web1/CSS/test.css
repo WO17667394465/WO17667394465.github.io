@@ -1,0 +1,449 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #dddddf;
+            padding-top: 88px;
+        }
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 88px;
+            background-color: #f1f3f6;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            z-index: 100;
+            transition: box-shadow 0.3s;
+        }
+        #header:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+        #header h2 {
+            color: #d32f2f;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        #header h2 span {
+            color: #2f54eb;
+        }
+        .nav-list {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+        .tap {
+            display: inline-flex;
+            align-items: center;
+            height: 88px;
+            padding: 0 8px;
+            cursor: pointer;
+            font-size: 16px;
+            position: relative;
+        }
+        .tap::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: #d32f2f;
+            transition: width 0.3s;
+        }
+        .tap a {
+            color: #444;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .tap:hover a {
+            color: #d32f2f;
+        }
+        .tap:hover::after {
+            width: 100%;
+        }
+        .my {
+            position: relative;
+        }
+        .tap-content {
+            display: none;
+            position: absolute;
+            top: 88px;
+            right: 0;
+            min-width: 180px;
+            background-color: #f1f3f6;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            z-index: 101;
+            overflow: hidden;
+        }
+        .tap-content a {
+            display: block;
+            padding: 12px 20px;
+            color: #555;
+            transition: all 0.3s;
+        }
+        .tap-content a:hover {
+            background-color: #e9ecef;
+            color: #d32f2f;
+            padding-left: 24px;
+        }
+        .my:hover .tap-content {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #main {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 30px;
+            display: flex;
+            gap: 24px;
+        }
+        .box1 {
+            width: 220px;
+            background-color: #f1f3f6;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            flex-shrink: 0;
+        }
+        .box1 h3 {
+            color: #d32f2f;
+            font-size: 18px;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .category-list {
+            list-style: none;
+        }
+        .category-list li {
+            margin-bottom: 20px;
+            position: relative;
+            left: 0;
+            transition: left 0.3s;
+        }
+        .category-list li a {
+            color: #555;
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+        .category-list li:hover {
+            left: 6px;
+        }
+        .category-list li:hover a {
+            color: #d32f2f;
+        }
+        .box2 {
+            flex: 1;
+            background-color: #f1f3f6;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            padding: 24px;
+        }
+        .section-title {
+            color: #d32f2f;
+            font-size: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #f8f8f8;
+            display: flex;
+            align-items: center;
+        }
+        .section-title::before {
+            content: "";
+            width: 4px;
+            height: 20px;
+            background-color: #d32f2f;
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+
+        /* 核心：好书推荐区样式（含悬停大图） */
+        .book-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        /* 图书卡片：添加relative定位，作为大图参考 */
+        .book-card {
+            width: calc((100% - 48px) / 3);
+            border-radius: 8px;
+            border: 1px solid #f0f0f0;
+            overflow: hidden;
+            background-color: #f1f3f6;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative; /* 关键：大图绝对定位的父容器 */
+            z-index: 1;
+        }
+        .book-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            border-color: transparent;
+        }
+        .book-img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .book-card:hover .book-img {
+            transform: scale(1.03);
+        }
+        /* 新增：悬停显示的大图样式 */
+        .book-hover-img {
+            position: absolute;
+            top: 50%;
+            left: 100%; /* 大图显示在卡片右侧 */
+            transform: translateY(-50%);
+            margin-left: 15px; /* 与卡片保持间距，避免重叠 */
+            width: 400px; /* 大图宽度，可根据需求调整 */
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            display: none; /* 默认隐藏 */
+            z-index: 10; /* 确保大图层级高于卡片 */
+            animation: zoomIn 0.3s ease; /* 添加入场动画 */
+        }
+        /* 悬停时显示大图 */
+        .book-card:hover .book-hover-img {
+            display: block;
+        }
+        /* 大图入场动画 */
+        @keyframes zoomIn {
+            from { opacity: 0; transform: translateY(-50%) scale(0.9); }
+            to { opacity: 1; transform: translateY(-50%) scale(1); }
+        }
+
+        .book-info {
+            padding: 16px;
+        }
+        .book-info p {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .book-info .author {
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 4px;
+        }
+        /* 原有图书详情弹窗样式保留 */
+        .book-content {
+            height: 100%;
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(225,225,225,0.9);
+            border-radius: 8px;
+            z-index: 20; /* 详情弹窗层级高于大图 */
+            overflow: auto;
+            padding: 16px;
+        }
+        .book-content p {
+            color: #d22727;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .book-card:hover .book-content {
+            display: block;
+        }
+
+        /* 其他原有样式保留 */
+        .new-book-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        .new-book-table th {
+            background-color: #bfc0c1;
+            color: #444;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 14px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        .new-book-table td {
+            padding: 16px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.3s;
+        }
+        .new-book-table tr:last-child td {
+            border-bottom: none;
+        }
+        .new-book-table tr:hover td {
+            background-color: #e7e7e7;
+        }
+        .new-book-img {
+            width: 80px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .price {
+            color: #d32f2f;
+            font-weight: 600;
+            font-size: 15px;
+        }
+        .box3 {
+            width: 280px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .ad-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .ad-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        }
+        .ad-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .ing {
+            width: 100%;
+            height: auto;
+            position: relative;
+            margin-bottom: 24px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .ing img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .ing-cover {
+            position: absolute;
+            top: 0; 
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(225,225,225,0.5);
+            display: none;
+            overflow: hidden;
+        }
+        .ing-play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: block;
+            margin: auto;
+        }
+        .ing:hover .ing-cover {
+            display: block;
+            cursor: pointer;
+        }
+        #floating-cart {
+            position: fixed;
+            right: 20px;
+            top: 90%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background-color: #d32f2f;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+            cursor: pointer;
+            z-index: 150;
+            transition: all 0.3s;
+            opacity: 0.9;
+        }
+        #exit {
+            position: fixed;
+            right: 90px;
+            top: 90%;
+            transform: translateY(-50%);
+            width: 90px;
+            height: 60px;
+            background-color: #2f54eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        #exit:hover {
+            background-color: #1d40d3;
+        }
+        #exit a {
+            text-decoration: none;
+            color: #fff;
+        }
+        .ad-content {
+            width: 250px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            flex-shrink: 0;
+        }
+        .ad-content h3 {
+            color: #d32f2f;
+            font-size: 18px;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .content-list {
+            list-style: none;
+        }
+        .content-list li {
+            margin-bottom: 12px;
+            position: relative;
+            left: 0;
+            transition: left 0.3s;
+        }
+        .content-list li a {
+            color: #555;
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+        .content-list li:hover {
+            left: 6px;
+        }
+        .content-list li:hover a {
+            color: #d32f2f;
+        }

@@ -1,0 +1,227 @@
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: aliceblue;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            padding: 20px 0;
+        }
+        
+        #tuijian {
+            background-image:url(../image/背景图1.jpeg);
+            background-size:cover;
+            padding: 30px;
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background-color: rgb(191, 217, 242);
+            border: 1px solid #ddd;
+            border-radius: 15px;
+        }
+        
+        #header-tuijian {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        #header-tuijian h2 {
+            color: rgb(189, 46, 20);
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+        
+        #header-tuijian hr {
+            border: none;
+            height: 2px;
+            background-color: #333;
+            width: 80%;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+        }
+        
+        .form-group h3 {
+            color: #5a3d2b;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e0d4c8;
+        }
+        
+        .form-item {
+            margin-bottom: 18px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #5a3d2b;
+        }
+        
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="email"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #c47d52;
+            box-shadow: 0 0 0 2px rgba(196, 125, 82, 0.2);
+        }
+        
+        .required::after {
+            content: "*";
+            color: #e53e3e;
+            margin-left: 5px;
+        }
+        
+        .xingbie {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .xingbie input {
+            width: auto;
+            margin-right: 5px;
+        }
+        
+        .interest-category {
+            margin-bottom: 25px;
+        }
+        
+        .interest-category p {
+            color: brown;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        
+        .interest-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            margin-top: 10px;
+            padding-left: 10px;
+        }
+        
+        .interest-options label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: normal;
+            cursor: pointer;
+        }
+        
+        .interest-options input {
+            width: auto;
+        }
+        .category-actions {
+            margin: 10px 0;
+            display: flex;
+            gap: 10px;
+        }
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+            font-family: inherit;
+        }
+        
+        .touxiang {
+            margin-top: 15px;
+        }
+        
+        .touxiang input {
+            padding: 5px;
+            border: none;
+        }
+        .upload{
+            width: 90px;
+            height: 92px;
+            vertical-align: middle;
+            display: inline-block;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            background-size: 90px;
+            background-image:url("../image/添加图片（2）.jpg");
+        }
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        input[type="file"]{
+            width:100%;
+            height:100%;
+            position:absolute;
+            top:0;
+            left:0;
+            background-color:transparent;
+            opacity:0;
+        }
+        input[type="submit"],
+        input[type="reset"] {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: auto;
+        }
+        
+        input[type="submit"] {
+            background-color: #c47d52;
+            color: white;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #a66541;
+            transform: translateY(-2px);
+        }
+        
+        input[type="reset"] {
+            background-color: #8a7968;
+            color: white;
+        }
+        input[type="reset"]:hover {
+            background-color: #706355;
+            transform: translateY(-2px);
+        }
+        .buchong{
+            margin: 20px;
+            text-align: center;
+        }
+        .buchong p{
+            color:rgb(160, 160, 161);
+        }
+        span{
+            color:#333;
+            font-weight: 400;
+        }
