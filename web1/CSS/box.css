@@ -615,21 +615,24 @@
     .power span{
         color:#25b3f0;
     }
-        .submit-btn {
-            width: 100%;
-            padding: 12px;
-            background-color: #173452;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+    .submit-btn {
+        width: 100%;
+        padding: 12px;
+        background-color: #173452;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        transition: all 0.3s;
+    }
 
-        .submit-btn:hover {
-            background-color: #34495e;
-        }
+    .submit-btn:hover {
+        background-color: #34495e;
+        transform:scale(0.9);
+        box-shadow:0 4px 12px rgba(0, 0, 0, 0.1);
+}
     .qita{
         margin: auto;
         text-align: center;
